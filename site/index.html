@@ -18,10 +18,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Manrope:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/config.js"></script>
 </head>
 <body>
 
 <a class="skip-link" href="#schedule">Перейти к расписанию</a>
+
+<div class="loader" data-loader aria-hidden="true">
+  <img class="loader__img" src="assets/loader.png" alt="" width="240" height="240">
+</div>
+<script>
+(function () {
+  var cfg = window.SITE_CONFIG || {};
+  if (!String(cfg.SHEET_ID || '').trim()) return;
+  var root = document.documentElement;
+  root.className += ' is-loading';
+  setTimeout(function () {
+    root.className = root.className.replace(/\bis-loading\b/, '');
+  }, 9000);
+})();
+</script>
 
 <header class="site-header">
   <div class="wrap header-inner">
@@ -155,7 +171,6 @@
 
 <a class="sticky-cta" data-phone-link data-sticky-cta href="tel:+70000000000">Позвонить</a>
 
-<script src="js/config.js"></script>
 <script src="js/default-content.js"></script>
 <script src="js/app.js"></script>
 </body>

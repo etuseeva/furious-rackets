@@ -674,6 +674,27 @@
 
   /* ---------- служебное ---------- */
 
+  function createLoader() {
+    var root = document.documentElement;
+    var startedAt = Date.now();
+
+    function hide() {
+      root.className = root.className.replace(/\bis-loading\b/, '');
+    }
+
+    return {
+      done: function () {
+        if (root.className.indexOf('is-loading') === -1) return;
+        var elapsed = Date.now() - startedAt;
+        if (elapsed < 400) {
+          setTimeout(hide, 400 - elapsed);
+        } else {
+          hide();
+        }
+      }
+    };
+  }
+
   function setYear() {
     var node = q('[data-year]');
     if (node) node.textContent = String(new Date().getFullYear());
@@ -758,13 +779,15 @@
     setYear();
     setupStickyCta();
 
+    var loader = createLoader();
+
     loadContent().then(render).catch(function () {
       var fallback = {};
       Object.keys(SHEETS).forEach(function (key) {
         fallback[key] = defaultRows(SHEETS[key].name);
       });
       render(fallback);
-    });
+    }).then(loader.done, loader.done);
   }
 
   if (document.readyState === 'loading') {

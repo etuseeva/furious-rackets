@@ -70,6 +70,37 @@ p { margin: 0 0 1em; }
   padding: 0 var(--pad);
 }
 
+/* ---------- загрузка ---------- */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-out, visibility 0s linear 0.25s;
+}
+
+.is-loading .loader {
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+
+.loader__img {
+  width: 96px;
+  height: 96px;
+  animation: loader-spin 1.2s linear infinite;
+}
+
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ---------- шапка ---------- */
 
 .site-header {
@@ -934,6 +965,8 @@ a.partner:hover .partner__name { color: var(--acc); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+
+  .loader__img { animation: none; }
   * {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
