@@ -1,0 +1,942 @@
+:root {
+  --bg: #000000;
+  --acc: #B6F024;
+  --acc-dark: #8FC40F;
+  --panel: #0F110C;
+  --line: #2A3020;
+  --text: #FFFFFF;
+  --muted: #A9AE9F;
+
+  --font-head: "Oswald", "Arial Narrow", "Helvetica Neue", Impact, sans-serif;
+  --font-body: "Manrope", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --skew: skewX(-8deg);
+  --header-h: 62px;
+  --pad: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--acc); }
+
+h1, h2, h3 { margin: 0; }
+
+p { margin: 0 0 1em; }
+
+[hidden] { display: none !important; }
+
+:focus-visible {
+  outline: 3px solid var(--acc);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--acc);
+  color: #000;
+  padding: 10px 16px;
+  font-weight: 800;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+/* ---------- шапка ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.94);
+  border-bottom: 1px solid var(--line);
+  padding-top: env(safe-area-inset-top);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: var(--header-h);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+  margin-right: auto;
+}
+
+.brand__logo {
+  width: 42px;
+  height: auto;
+}
+
+.brand__name {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 0.98;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  display: none;
+  gap: 22px;
+}
+
+.nav__link {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.nav__link:hover { color: var(--acc); }
+
+/* ---------- кнопки ---------- */
+
+.btn {
+  display: inline-block;
+  transform: var(--skew);
+  border: 2px solid var(--acc);
+  padding: 14px 26px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.15s linear, color 0.15s linear, border-color 0.15s linear;
+}
+
+.btn--accent {
+  background: var(--acc);
+  color: #000;
+}
+.btn--accent:hover { background: var(--acc-dark); border-color: var(--acc-dark); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--acc);
+}
+.btn--ghost:hover { background: var(--acc); color: #000; }
+
+.btn--outline-dark {
+  background: transparent;
+  color: #000;
+  border-color: #000;
+}
+.btn--outline-dark:hover { background: #000; color: var(--acc); }
+
+.btn--dark {
+  background: #000;
+  color: var(--acc);
+  border-color: #000;
+}
+.btn--dark:hover { background: #12160c; }
+
+.btn--sm {
+  padding: 9px 16px;
+  font-size: 14px;
+}
+
+.header-cta { flex: none; }
+
+/* ---------- первый экран ---------- */
+
+.hero {
+  border-bottom: 1px solid var(--line);
+  padding: 34px 0 44px;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--acc);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: clamp(46px, 15vw, 104px);
+  line-height: 0.9;
+  letter-spacing: -0.005em;
+  margin: 0 0 18px;
+}
+
+.slogan { margin: 0 0 20px; }
+
+.slogan__in {
+  display: inline-block;
+  transform: var(--skew);
+  background: var(--acc);
+  color: #000;
+  padding: 7px 16px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(17px, 4.6vw, 26px);
+  letter-spacing: 0.01em;
+}
+
+.hero__lead {
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 46ch;
+  margin-bottom: 26px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero__art { display: none; }
+
+/* ---------- секции ---------- */
+
+.section {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 8px);
+}
+
+.h2 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: clamp(30px, 8vw, 56px);
+  line-height: 0.95;
+  margin: 0;
+}
+
+.section__head { margin-bottom: 30px; }
+
+.section__head--icon {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section__icon {
+  width: 52px;
+  height: auto;
+  flex: none;
+}
+
+.h3 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: clamp(22px, 5.5vw, 30px);
+  line-height: 1;
+  margin: 0 0 18px;
+}
+
+.section__note {
+  color: var(--muted);
+  margin: 12px 0 0;
+  max-width: 56ch;
+}
+
+/* ---------- виды тренировок ---------- */
+
+.trainings {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.training {
+  background: var(--panel);
+  padding: 24px 22px;
+}
+
+.training__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 24px;
+  letter-spacing: 0.01em;
+  margin: 0 0 10px;
+  color: var(--acc);
+}
+
+.training__text {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- расписание ---------- */
+
+.schedule {
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "day day"
+    "time price"
+    "meta meta"
+    "venue venue";
+  align-items: center;
+  gap: 8px 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.row + .row { padding-top: 20px; }
+
+.row__day { grid-area: day; }
+.row__time { grid-area: time; }
+.row__price { grid-area: price; }
+.row__meta { grid-area: meta; }
+.row__venue { grid-area: venue; }
+
+.row__day-in {
+  display: inline-block;
+  transform: var(--skew);
+  background: var(--acc);
+  color: #000;
+  padding: 4px 14px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+
+.row__time {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.row__price { text-align: right; }
+
+.price {
+  display: inline-block;
+  background: var(--acc);
+  color: #000;
+  padding: 9px 16px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  white-space: nowrap;
+  clip-path: polygon(
+    5px 0, 100% 0,
+    calc(100% - 5px) 14%, 100% 30%,
+    calc(100% - 4px) 50%, 100% 70%,
+    calc(100% - 5px) 86%, 100% 100%,
+    5px 100%, 0 86%,
+    4px 70%, 0 50%,
+    4px 30%, 0 14%
+  );
+}
+
+.row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.type {
+  font-family: var(--font-head);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.type--play { color: var(--acc); }
+
+.levels {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.level {
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  text-transform: uppercase;
+}
+.level--any { text-transform: none; font-weight: 600; letter-spacing: 0; }
+
+.row__venue {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.row__venue-link {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.row__venue-link:hover { color: var(--acc); border-color: var(--acc); }
+
+/* ---------- акции ---------- */
+
+.promo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.promo__media img,
+.tournament__media img,
+.coach__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #000;
+}
+
+.promo__body,
+.tournament__body { padding: 22px 20px; }
+
+.promo__title,
+.tournament__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: clamp(20px, 5vw, 28px);
+  line-height: 1.02;
+  margin: 0 0 12px;
+}
+
+.promo__text,
+.tournament__text {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+/* ---------- площадки ---------- */
+
+.venues {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.venue {
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  padding: 22px 20px;
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+.venue__foot { margin-top: auto; }
+
+.venue__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+
+.venue__address {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0 0 12px;
+}
+
+.venue__days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0;
+}
+.venue__days:empty { display: none; }
+
+.day-chip {
+  border: 1px solid var(--acc);
+  color: var(--acc);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 9px;
+}
+
+.venue__map {
+  color: var(--acc);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--acc-dark);
+}
+
+/* ---------- тренер ---------- */
+
+.coaches {
+  display: grid;
+  gap: 22px;
+}
+
+.coach {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.coach__body { padding: 22px 20px; }
+
+.coach__name {
+  font-family: var(--font-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.coach__about { color: var(--muted); }
+
+.link-soft {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.link-soft:hover { color: var(--acc); border-color: var(--acc); }
+
+.link-accent {
+  color: var(--acc);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid var(--acc-dark);
+}
+
+/* ---------- турниры ---------- */
+
+.tournament {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  margin-bottom: 22px;
+}
+
+.tournament__when {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 0 0 14px;
+  font-family: var(--font-head);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  color: var(--acc);
+}
+
+.tournament__where { color: var(--muted); }
+
+.tournaments__more {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- партнёры ---------- */
+
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.partner {
+  flex: 1 1 220px;
+  background: var(--panel);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.partner__name {
+  font-family: var(--font-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.partner__logo { max-height: 46px; width: auto; object-fit: contain; }
+
+.partner__desc {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+a.partner:hover .partner__name { color: var(--acc); }
+
+/* ---------- вопросы ---------- */
+
+.faq {
+  border-top: 1px solid var(--line);
+}
+
+.qa { border-bottom: 1px solid var(--line); }
+
+.qa__q {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 40px 18px 0;
+  position: relative;
+  font-family: var(--font-head);
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.qa__q::-webkit-details-marker { display: none; }
+
+.qa__q::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--acc);
+  font-size: 26px;
+  line-height: 1;
+}
+.qa[open] .qa__q::after { content: "–"; }
+.qa[open] .qa__q { color: var(--acc); }
+
+.qa__a {
+  color: var(--muted);
+  padding: 0 0 20px;
+}
+
+/* ---------- финал ---------- */
+
+.final {
+  background: var(--acc);
+  color: #000;
+  padding: 54px 0;
+  scroll-margin-top: var(--header-h);
+}
+
+
+.final__inner {
+  display: grid;
+  gap: 34px;
+}
+
+.final__logo {
+  width: 200px;
+  height: auto;
+  justify-self: center;
+  order: -1;
+}
+
+.final__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: clamp(38px, 12vw, 84px);
+  line-height: 0.92;
+  margin: 0 0 14px;
+}
+
+.final__text {
+  max-width: 44ch;
+  margin: 0 0 24px;
+  font-weight: 600;
+}
+
+.final__phone {
+  font-size: clamp(20px, 6vw, 30px);
+  padding: 16px 30px;
+}
+
+.final__who {
+  margin: 12px 0 0;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.final__tg {
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.final__tg-text {
+  max-width: 48ch;
+  margin: 0 0 16px;
+  font-weight: 600;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 26px 0 0;
+  border-top: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.socials__link {
+  color: #000;
+  text-decoration: none;
+  font-family: var(--font-head);
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.35);
+}
+.socials__link:hover { border-color: #000; }
+
+.final :focus-visible { outline-color: #000; }
+
+/* ---------- футер ---------- */
+
+.site-footer {
+  padding: 26px 0 calc(26px + env(safe-area-inset-bottom));
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 20px;
+  justify-content: space-between;
+}
+
+.footer__logo {
+  width: 112px;
+  height: auto;
+  margin-right: 4px;
+}
+.footer-inner p { margin: 0; }
+
+/* ---------- липкая кнопка ---------- */
+
+.sticky-cta {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: block;
+  background: var(--acc);
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 18px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transform: translateY(160%);
+  transition: transform 0.2s ease-out;
+}
+.sticky-cta.is-visible { transform: translateY(0); }
+
+@media (max-width: 859px) {
+  body { padding-bottom: 78px; }
+}
+
+@media (min-width: 860px) {
+  .sticky-cta { display: none; }
+}
+
+/* ---------- широкие экраны ---------- */
+
+@media (min-width: 680px) {
+  :root { --pad: 28px; }
+
+  .venues { grid-template-columns: repeat(2, 1fr); }
+  .trainings { grid-template-columns: repeat(3, 1fr); }
+
+  .venue__days:empty {
+    display: block;
+    min-height: 22px;
+  }
+
+
+  .promo,
+  .tournament,
+  .coach { grid-template-columns: 1fr 1fr; gap: 0; }
+
+  .promo__media img,
+  .tournament__media img,
+  .coach__media img {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 280px;
+  }
+
+  .promo__body,
+  .tournament__body,
+  .coach__body {
+    padding: 30px 28px;
+    align-self: center;
+  }
+}
+
+@media (min-width: 860px) {
+  :root { --header-h: 72px; }
+
+  .final__inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .final__logo {
+    width: 320px;
+    order: 0;
+  }
+
+  .nav { display: flex; }
+
+  .hero {
+    padding: 56px 0 60px;
+  }
+
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 40px;
+  }
+
+  .hero__lead { max-width: none; }
+
+  .hero__art {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__art img {
+    width: auto;
+    max-width: 100%;
+    max-height: 480px;
+  }
+
+  .section__icon { width: 64px; }
+
+  .section { padding: 72px 0; }
+
+  .row {
+    grid-template-columns: minmax(150px, 0.9fr) minmax(130px, 0.8fr) minmax(170px, 1.1fr) minmax(0, 1.2fr) auto;
+    gap: 20px;
+    padding: 22px 0;
+  }
+
+  .row { grid-template-areas: none; }
+  .row + .row { padding-top: 22px; }
+  .row__day,
+  .row__time,
+  .row__price,
+  .row__meta,
+  .row__venue { grid-area: auto; }
+
+  .row__day-in { font-size: 21px; padding: 5px 16px; }
+  .row__time { font-size: 34px; }
+  .row__meta { flex-direction: column; align-items: flex-start; gap: 7px; }
+  .row__venue { font-size: 15px; }
+  .price { font-size: 23px; padding: 11px 20px; }
+}
+
+@media (min-width: 1080px) {
+  .venues { grid-template-columns: repeat(3, 1fr); }
+
+}
+
+/* ---------- бережные анимации ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .sticky-cta { transition: none; }
+}

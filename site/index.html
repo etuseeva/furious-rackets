@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Бешеные ракетки — клуб любителей бадминтона в Саратове</title>
+<meta name="description" content="Бадминтон в Саратове для любого уровня. Рабочие и игровые тренировки пять раз в неделю, ракетку дадим. Расписание, цены и запись в Telegram.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Бешеные ракетки — бадминтон в Саратове">
+<meta property="og:description" content="Клуб любителей бадминтона. Тренировки пять раз в неделю, ракетку дадим. Приходи, даже если ни разу не держал ракетку.">
+<meta property="og:image" content="assets/logo.png">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Manrope:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#schedule">Перейти к расписанию</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <img class="brand__logo" src="assets/mark.png" alt="" width="180" height="180" loading="eager">
+      <span class="brand__name">Бешеные<br>ракетки</span>
+    </a>
+
+    <nav class="nav" aria-label="Разделы сайта">
+      <a class="nav__link" href="#schedule" data-nav="schedule">Расписание</a>
+      <a class="nav__link" href="#venues" data-nav="venues">Площадки</a>
+      <a class="nav__link" href="#tournaments" data-nav="tournaments">Турниры</a>
+      <a class="nav__link" href="#faq" data-nav="faq">Вопросы</a>
+      <a class="nav__link" href="#contacts">Контакты</a>
+    </nav>
+
+    <a class="btn btn--accent btn--sm header-cta" href="#contacts">Записаться</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow">Бадминтон в Саратове</p>
+        <h1 class="hero__title" data-hero-title>Бешеные ракетки</h1>
+        <p class="slogan"><span class="slogan__in" data-hero-slogan>Больше чем бадминтон</span></p>
+        <p class="hero__lead" data-hero-text>Мы те, кто считает, что лучший отдых — это погонять волан до седьмого пота. Всегда рады новичкам — приходи, даже если ни разу не держал ракетку.</p>
+        <div class="hero__actions">
+          <a class="btn btn--accent" data-phone-link href="tel:+70000000000">Позвонить</a>
+          <a class="btn btn--ghost" href="#schedule">Смотреть расписание</a>
+        </div>
+      </div>
+      <div class="hero__art">
+        <img src="assets/mascot.png" alt="Маскот клуба «Бешеные ракетки»" width="1000" height="1551" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--trainings" id="trainings" hidden>
+    <div class="wrap">
+      <div class="section__head section__head--icon"><img class="section__icon" src="assets/icon-trainings.png" alt="" width="200" height="194" loading="lazy"><h2 class="h2">Наши тренировки</h2></div>
+      <div class="trainings" data-trainings></div>
+    </div>
+  </section>
+
+  <section class="section section--schedule" id="schedule" hidden>
+    <div class="wrap">
+      <div class="section__head section__head--icon"><img class="section__icon" src="assets/icon-schedule.png" alt="" width="200" height="143" loading="lazy"><h2 class="h2">Расписание</h2></div>
+      <div class="schedule" data-schedule></div>
+
+    </div>
+  </section>
+
+  <section class="section section--promos" id="promos" hidden>
+    <div class="wrap">
+      <div class="section__head"><h2 class="h2">Акции</h2></div>
+      <div data-promos></div>
+    </div>
+  </section>
+
+  <section class="section section--venues" id="venues" hidden>
+    <div class="wrap">
+      <div class="section__head section__head--icon"><img class="section__icon" src="assets/icon-venues.png" alt="" width="200" height="154" loading="lazy"><h2 class="h2">Где играем</h2></div>
+      <div class="venues" data-venues></div>
+    </div>
+  </section>
+
+  <section class="section section--coach" id="coach" hidden>
+    <div class="wrap">
+      <div class="section__head"><h2 class="h2">Тренер</h2></div>
+      <div class="coaches" data-coaches></div>
+    </div>
+  </section>
+
+  <section class="section section--tournaments" id="tournaments" hidden>
+    <div class="wrap">
+      <div class="section__head">
+        <h2 class="h2">Турниры</h2>
+        <p class="section__note" data-tournaments-intro></p>
+      </div>
+      <div data-tournaments></div>
+      <p class="tournaments__more">Анонсы и результаты — <a data-tg-link href="https://t.me/furiousrackets" target="_blank" rel="noopener">в нашей группе</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section--partners" id="partners" hidden>
+    <div class="wrap">
+      <div class="section__head"><h2 class="h2">Партнёры</h2></div>
+      <div class="partners" data-partners></div>
+    </div>
+  </section>
+
+  <section class="section section--faq" id="faq" hidden>
+    <div class="wrap">
+      <div class="section__head section__head--icon"><img class="section__icon" src="assets/icon-faq.png" alt="" width="200" height="136" loading="lazy"><h2 class="h2">Частые вопросы</h2></div>
+      <div class="faq" data-faq></div>
+    </div>
+  </section>
+
+  <section class="final" id="contacts">
+    <div class="wrap final__inner">
+      <div class="final__content">
+        <h2 class="final__title">Приходи играть</h2>
+        <p class="final__text">Звони — расскажем, покажем, объясним.</p>
+
+        <a class="btn btn--dark final__phone" data-phone-link href="tel:+70000000000"><span data-phone-text>+7 000 000-00-00</span></a>
+        <p class="final__who" data-phone-name>Отвечает Руслан — он и запишет</p>
+
+        <div class="final__tg">
+          <p class="final__tg-text">Не любишь звонить? Тебе в группу — там вся жизнь клуба: анонсы, турниры, акции.</p>
+          <a class="btn btn--outline-dark" data-tg-link href="https://t.me/furiousrackets" target="_blank" rel="noopener">Группа в Telegram</a>
+        </div>
+
+        <ul class="socials" data-socials hidden></ul>
+      </div>
+
+      <img class="final__logo" src="assets/logo.png" alt="Бешеные ракетки — бадминтон в Саратове" width="440" height="463" loading="lazy">
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© <span data-year>2026</span> Клуб «Бешеные ракетки», Саратов</p>
+    <p>Бадминтон для любого уровня</p>
+  </div>
+</footer>
+
+<a class="sticky-cta" data-phone-link data-sticky-cta href="tel:+70000000000">Позвонить</a>
+
+<script src="js/config.js"></script>
+<script src="js/default-content.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
